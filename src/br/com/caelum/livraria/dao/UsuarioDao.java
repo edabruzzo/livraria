@@ -1,10 +1,9 @@
 package br.com.caelum.livraria.dao;
 
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 
 import br.com.caelum.livraria.modelo.Usuario;
 
@@ -19,14 +18,25 @@ public class UsuarioDao {
 	
 	public Usuario buscaPeloLogin(String login) {
 	
-		Usuario usuario = (Usuario) this.manager
-				.createQuery("select u from Usuario u where u.login=:pLogin")
-				.setParameter("pLogin", login).getSingleResult();
-        return usuario;
+		Usuario usuario = new Usuario();
+		
+		try{
+			
+			usuario = (Usuario) this.manager
+		
+			.createQuery("select u from Usuario u where u.login=:pLogin")
+			.setParameter("pLogin", login).getSingleResult();
+			
+		}catch(NoResultException nre){
+			System.out.println("NÃO ENCONTRADO O USUÁRIO!");
+			criaPrimeiroUsuario();
+			
+		} return usuario;
+			
     }
 	
 	public void criaPrimeiroUsuario() {
-		
+		System.out.println("CRIANDO USUÁRIO !");
 		Usuario usuario = new Usuario();
 		usuario.setLogin("admin");
 		usuario.setSenha("admin");
