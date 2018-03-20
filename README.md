@@ -126,3 +126,11 @@ A próxima tarefa é alterar o UsuarioDao, que ainda usa a classe antiga. Mas is
 
 PARA REGISTRO DO DRIVER DO MYSQL NO WILDFLY 11:
 https://desenvolvo.wordpress.com/2013/08/27/configurando-datasource-no-jboss-wildfly-com-mysql/
+
+PARA CONFIGURAÇÃO DOS DATASOURCES : 
+
+http://www.adam-bien.com/roller/abien/entry/installing_oracle_jdbc_driver_on
+
+TAMBÉM É NECESSÁRIO CONFIGURAR NO STANDALONE.XML A REFERÊNCIA AO DATASOURCE PADRÃO 'EXAMPLEDS', ALTERANDO PARA livrariaDS
+
+https://stackoverflow.com/questions/46258244/how-to-correctly-use-datasource-on-wildfly-10-1-0
