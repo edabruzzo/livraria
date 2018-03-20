@@ -23,7 +23,6 @@ public class UsuarioDao {
 		try{
 			
 			usuario = (Usuario) this.manager
-		
 			.createQuery("select u from Usuario u where u.login=:pLogin")
 			.setParameter("pLogin", login).getSingleResult();
 			

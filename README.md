@@ -1,6 +1,10 @@
 # livraria
 PROJETO ALURA - EJB - O poder do Java EE
 
+*******************************************************************
+THIS PROJECT IS JUT A PERSONAL INITIATIVE WITH DIDATIC PURPOSES ***
+*******************************************************************
+
 
 SERVIDOR DE APLICAÇÃO : JBOSS - WILDFLY - 11.0.0 - FINAL
 
