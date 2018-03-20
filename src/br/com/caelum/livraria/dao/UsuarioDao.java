@@ -25,6 +25,13 @@ public class UsuarioDao {
         return usuario;
     }
 	
-	
+	public void criaPrimeiroUsuario() {
+		
+		Usuario usuario = new Usuario();
+		usuario.setLogin("admin");
+		usuario.setSenha("admin");
+		
+		manager.persist(usuario);
+	}
 	
 }

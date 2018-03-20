@@ -31,6 +31,7 @@ public class LoginBean {
 	
 	public String efetuaLogin() {
 		
+		this.dao.criaPrimeiroUsuario();
 		Usuario usuarioEncontrado = this.dao.buscaPeloLogin(usuario.getLogin());
 		
 		if(usuarioEncontrado!= null && possuiMesmaSenha(usuarioEncontrado)) {
