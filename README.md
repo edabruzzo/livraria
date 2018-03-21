@@ -2,7 +2,7 @@
 PROJETO ALURA - EJB - O poder do Java EE
 
 ********************************************************************
-THIS PROJECT IS JUST A PERSONAL INITIATIVE WITH DIDATIC PURPOSES ***
+THIS PROJECT IS JUST A PERSONAL INITIATIVE WITH DIDATIC PURPOSES
 ********************************************************************
 
 
