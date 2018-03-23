@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import br.com.caelum.livraria.modelo.Autor;
+import interceptador.LogInterceptor;
 
 
 @Stateless
@@ -25,19 +27,17 @@ public class AutorDao {
 		
 	}
 	
-
-	public void salva(Autor autor) {
+	
+	/*este método vai ser interceptado pela classe LogInterceptor 
+	a interceptação pode ser feita na classe também ou em métodos
+	como aqui é um array de classes interceptadoras,
+	poderíamos ter várias classes interceptando este método*/
+	
+	@Interceptors({LogInterceptor.class})
+	public void salva(Autor autor)  {
 		
-		System.out.println("TEMPO ATUAL DA APLICAÇÃO : " + System.currentTimeMillis());
-		/*try {
-			Thread.sleep(20000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
 		manager.persist(autor);
-		System.out.println("TEMPO ATUAL DA APLICAÇÃO APÓS SALVAR O AUTOR : " + System.currentTimeMillis());
-
+		
 	}
 	
 	public List<Autor> todosAutores() {
