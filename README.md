@@ -12,6 +12,7 @@ IDE UTILIZADA NO DESENVOLVIMENTO - ECLIPE JEE - OXYGEN
 Eclipse Java EE IDE for Web Developers.
 Version: Oxygen.1a Release (4.7.1a)
 
+EJB - 3.0
 PRIMEFACES 4.0
 ALL-THEMES -1.0.10
 JSF - 2.0
