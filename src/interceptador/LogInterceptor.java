@@ -13,10 +13,16 @@ public class LogInterceptor {
 			
 			Object objetoQualquer = context.proceed();
 			
-			System.out.println("TEMPO GASTO PELA APLICAÇÃO NA EXECUÇÃO: " 
-			+ (System.currentTimeMillis() - tempoMillisInicio));
-		
+			String nomeMetodoInterceptado = context.getMethod().getName();
 			
+			String nomeClasseInterceptada = context.getTarget().getClass().getSimpleName();
+			
+			System.out.println("ESTE É O INTERCEPTADOR - "
+					+ "TEMPO GASTO PELA APLICAÇÃO NA EXECUÇÃO " 
+			 + "DO MÉTODO : " +
+					nomeMetodoInterceptado + " DA CLASSE " + nomeClasseInterceptada + " : "
+					+ (System.currentTimeMillis() - tempoMillisInicio) + " ms");
+		
 			return objetoQualquer;
 		
 
