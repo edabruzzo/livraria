@@ -4,19 +4,20 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
-import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import br.com.caelum.livraria.modelo.Autor;
-import interceptador.LogInterceptor;
 
 
 /*os métodos  desta classe serão interceptados pela classe LogInterceptor 
 a interceptação pode ser feita na classe ou em métodos diretamente
 como aqui é um array de classes interceptadoras, poderíamos ter várias 
 classes interceptando */
-@Interceptors({LogInterceptor.class})
+/*A configuração de interceptor pode ser feita por arquivo xml 
+ * No caso, para testar vamos criar o arquivo ejb-jar.xml na pasta WEB-INF
+ */
+//@Interceptors({LogInterceptor.class})
 @Stateless
 public class AutorDao {
 

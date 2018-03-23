@@ -19,7 +19,7 @@ public class LogInterceptor {
 			
 			System.out.println("ESTE É O INTERCEPTADOR - "
 					+ "TEMPO GASTO PELA APLICAÇÃO NA EXECUÇÃO " 
-			 + "DO MÉTODO : " +
+			 + "DO MÉTODO " +
 					nomeMetodoInterceptado + " DA CLASSE " + nomeClasseInterceptada + " : "
 					+ (System.currentTimeMillis() - tempoMillisInicio) + " ms");
 		
