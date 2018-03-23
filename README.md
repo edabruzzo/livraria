@@ -459,3 +459,26 @@ public class LivrariaException extends Exception{
 Como sempre, vamos testar o novo comportamento. Ao cadastrar um autor pela interface web é lançado uma LivrariaException. Novamente a exceção aparece no console do Eclipse e repare também que essa exceção não foi embrulhada. Até aqui é tudo igual. No entanto, ao verificar o banco de dados, percebemos que o autor não foi salvo, ou seja, foi feito um rollback da transação.
 
 Por fim, uma vez declarado a LivrariaException como @ApplicationException, podemos deixar ela unchecked. Isso significa que não precisamos estender a classe Exception e sim RuntimeException. Assim, o compilador não obriga o desenvolvedor a fazer um tratamento explicito da exceção. Podemos, então, apagar aquelas declarações throws na assinatura dos métodos no AutorBean e no AutorService.
+
+Ao recebermos uma EJBTransactionRollbackException ocorre uma System Exception. É realizado rollback da transação e o Session Bean é invalidado.
+
+Uma System Exception sempre causa rollback, invalida o Session Bean e tira ele do Pool de objetos.
+
+Por padrão, qualquer exceção do tipo checked é considerada uma Application Exception, não causa rollback, nem invalida o Session Bean.
+
+Através da anotação @ApplicationException podemos reconfigurar o padrão para Application Exceptions. Veja o exemplo:
+
+@ApplicationException(rollback=true)
+public class ValidationException extends Exception {
+}
+Repare que, sem a anotação @ApplicationException, a ValidationException não causaria rollback da transação. Usando a anotação @ApplicationException podemos até criar uma exceção do tipo unchecked, normalmente uma System Exception:
+
+@ApplicationException(rollback=true)
+public class ValidationException extends RuntimeException {
+}
+Como estendemos a classe RuntimeException criamos uma exceção do tipo unchecked.
+
+Uma System Exception é algo grave, imprevisto, não deveria acontecer e sempre causa um rollback da transação. Normalmente são exceções de infra-estrutura. Além disso, aquele Session Bean que lançou a exceção é invalidado e retirado do pool de objetos. Por padrão, qualquer exceção unchecked é System Exception.
+
+Uma Application Exception pode acontecer durante a vida da aplicação e relacionada ao domínio. Por isso não causa rollback e nem invalida o Session Bean. Por padrão, qualquer exceção checked é Application Exception.
+
