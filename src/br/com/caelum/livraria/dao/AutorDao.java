@@ -12,6 +12,11 @@ import br.com.caelum.livraria.modelo.Autor;
 import interceptador.LogInterceptor;
 
 
+/*os métodos  desta classe serão interceptados pela classe LogInterceptor 
+a interceptação pode ser feita na classe ou em métodos diretamente
+como aqui é um array de classes interceptadoras, poderíamos ter várias 
+classes interceptando */
+@Interceptors({LogInterceptor.class})
 @Stateless
 public class AutorDao {
 
@@ -28,12 +33,7 @@ public class AutorDao {
 	}
 	
 	
-	/*este método vai ser interceptado pela classe LogInterceptor 
-	a interceptação pode ser feita na classe também ou em métodos
-	como aqui é um array de classes interceptadoras,
-	poderíamos ter várias classes interceptando este método*/
-	
-	@Interceptors({LogInterceptor.class})
+
 	public void salva(Autor autor)  {
 		
 		manager.persist(autor);
