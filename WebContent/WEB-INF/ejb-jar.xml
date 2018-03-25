@@ -7,7 +7,7 @@
 	 <interceptors>
 	 	<interceptor>
 	 		<interceptor-class>
-				interceptador.LogInterceptor
+				br.com.caelum.livraria.interceptador.LogInterceptor
 			</interceptor-class>
 	 	</interceptor>
 	 </interceptors>
@@ -16,7 +16,7 @@
 		<interceptor-binding>
 			<ejb-name>AutorDao</ejb-name>
 			<interceptor-class>
-				interceptador.LogInterceptor
+				br.com.caelum.livraria.interceptador.LogInterceptor
 			</interceptor-class>
 		</interceptor-binding>
 	</assembly-descriptor>
