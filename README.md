@@ -1,6 +1,12 @@
 # livraria
 PROJETO ALURA - EJB - O poder do Java EE
 
+
+*********************************************************************************************
+ATENÇÃO !!!!
+Este projeto foi desenvolvido pela ALURA e NÃO POR MIM. Eu apenas o utilizo como aprendizado.
+*********************************************************************************************
+
 ********************************************************************
 THIS PROJECT IS JUST A PERSONAL INITIATIVE WITH DIDATIC PURPOSES
 ********************************************************************
